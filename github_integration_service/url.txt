@@ -1,0 +1,4 @@
+http://localhost:8000/connect-github
+http://localhost:8000/select-repository
+http://localhost:8000/dashboard
+http://localhost:8000/repo/1
