@@ -1,0 +1,39 @@
+Project: Online Banking System
+Version: 1.0
+Author: Stakeholder Team
+Date: 2025-04-16
+
+---
+
+# Functional Requirements
+
+1. Users shall be able to create an account using their email and phone number.
+2. The system must send an OTP for verification during registration.
+3. Users shall be able to log in using their email and password.
+4. The system must allow users to reset their password via email verification.
+5. Users shall be able to view their account balance in real-time.
+6. Users must be able to transfer funds between their own accounts.
+7. The system should allow inter-bank transfers with a processing time of less than 24 hours.
+8. Users shall be able to download account statements in PDF format.
+9. The system must notify users via email/SMS for every transaction above ₹5000.
+10. Admins shall be able to view and manage user accounts.
+
+---
+
+# Non-Functional Requirements
+
+1. The system should handle 10,000 concurrent users.
+2. All API responses must complete within 2 seconds.
+3. The application shall be secured using HTTPS and end-to-end encryption.
+4. User passwords must be stored using SHA-256 hashing.
+5. The system shall maintain an uptime of 99.9% monthly.
+6. The database must support automatic backups every 6 hours.
+
+---
+
+# Business Rules
+
+1. A minimum balance of ₹500 must be maintained in savings accounts.
+2. Transactions above ₹1,00,000 require additional OTP verification.
+3. Account statements must be retained for at least 5 years.
+4. Users can request a maximum of 3 password resets per day.

@@ -1,0 +1,56 @@
+
+{% extends "base.html" %}
+{% block title %}Repository Dashboard{% endblock %}
+{% block content %}
+  <h1 class="mb-4">Repository Dashboard</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, msg in messages %}
+      <div class="alert alert-{{ category }}">{{ msg }}</div>
+    {% endfor %}
+  {% endwith %}
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Repository</th>
+        <th>Active?</th>
+        <th>Last Event ID</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Document</th>
+        <th>Actions</th>
+        <!-- <th class="text-center">Logs</th> -->
+        <!-- <th class="text-center">Delete</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for sub in subscriptions %}
+      <tr data-repo="{{ sub.repository_url }}">
+        <td>{{ sub.repository_url }}</td>
+        <td class="text-center">
+          <input type="checkbox" class="toggle-active" {% if sub.is_active %}checked{% endif %}>
+        </td>
+        <td>{{ sub.last_event_id or '--' }}</td>
+        <td>{{ sub.created_at }}</td>
+        <td>{{ sub.updated_at }}</td>
+        <td>
+          {% if sub.document %}
+            <a href="{{ url_for('repo_detail', sub_id=sub.id) }}" class="btn btn-sm btn-outline-primary">View / Edit</a>
+          {% else %}
+            <a href="{{ url_for('repo_detail', sub_id=sub.id) }}" class="btn btn-sm btn-outline-secondary">Upload</a>
+          {% endif %}
+        </td>
+        <td>
+          <button class="btn btn-sm btn-secondary regenerate" data-repo="{{ sub.repository_url }}">Regenerate</button>
+        </td>
+        <!-- <td class="text-center">
+          <button class="btn btn-info btn-sm view-logs" data-repo="{{ sub.repository_url }}">
+            <i class="fas fa-file-alt"></i>
+          </button>
+        </td> -->
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

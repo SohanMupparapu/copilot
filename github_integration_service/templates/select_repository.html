@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Select Repository{% endblock %}
+{% block content %}
+  {% if public_url %}
+    <div class="alert alert-secondary">
+      <strong>Webhook Endpoint:</strong>
+      <code>{{ public_url }}/api/github/webhook/{{ session.user_id }}</code>
+    </div>
+  {% endif %}
+
+  <h1>Select a Repository</h1>
+  <p>Choose one of your GitHub repositories to set up a webhook for push events.</p>
+
+  <form action="{{ url_for('subscribe_repo') }}" method="post">
+    <div class="form-group">
+      <label for="repositorySelect">Repository</label>
+      <select class="form-control" 
+              id="repositorySelect" 
+              name="repository_name" 
+              required>
+        {% for repo in repositories %}
+          <option value="{{ repo.full_name }}">
+            {{ repo.full_name }}
+            {% if repo.description %} – {{ repo.description }}{% endif %}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      Set Up Webhook
+    </button>
+  </form>
+
+  {% if message %}
+    <div class="alert alert-info mt-3">{{ message }}</div>
+  {% endif %}
+{% endblock %}

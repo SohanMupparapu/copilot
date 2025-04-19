@@ -1,0 +1,7 @@
+flask
+flask-cors
+pdfkit
+nltk
+requests
+python-dotenv
+gunicorn

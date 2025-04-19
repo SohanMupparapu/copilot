@@ -1,0 +1,9 @@
+groq
+python-docx
+PyPDF2
+argparse
+gunicorn 
+flask
+pdfminer.six
+requests
+pdfplumber

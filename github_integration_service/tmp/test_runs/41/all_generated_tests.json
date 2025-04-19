@@ -1,0 +1,344 @@
+[
+  {
+    "test_id": "TC_01",
+    "test_name": "Create Account",
+    "test_description": "Test creating an account using email and phone number",
+    "test_scenario": "R1",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Enter valid email and phone number",
+        "expected_result": "Account created successfully"
+      },
+      {
+        "step_id": 2,
+        "action": "Enter invalid email and phone number",
+        "expected_result": "Error message displayed"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_02",
+    "test_name": "OTP Verification",
+    "test_description": "Test OTP verification during registration",
+    "test_scenario": "R2",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Enter valid OTP",
+        "expected_result": "Registration successful"
+      },
+      {
+        "step_id": 2,
+        "action": "Enter invalid OTP",
+        "expected_result": "Error message displayed"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_03",
+    "test_name": "Login",
+    "test_description": "Test logging in using email and password",
+    "test_scenario": "R3",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Enter valid email and password",
+        "expected_result": "Login successful"
+      },
+      {
+        "step_id": 2,
+        "action": "Enter invalid email and password",
+        "expected_result": "Error message displayed"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_04",
+    "test_name": "Password Reset",
+    "test_description": "Test resetting password via email verification",
+    "test_scenario": "R4",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Enter valid email",
+        "expected_result": "Password reset link sent"
+      },
+      {
+        "step_id": 2,
+        "action": "Enter invalid email",
+        "expected_result": "Error message displayed"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_05",
+    "test_name": "Account Balance",
+    "test_description": "Test viewing account balance in real-time",
+    "test_scenario": "R5",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Login to account",
+        "expected_result": "Account balance displayed"
+      },
+      {
+        "step_id": 2,
+        "action": "Perform transaction",
+        "expected_result": "Account balance updated"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_06",
+    "test_name": "Intra-Bank Transfer",
+    "test_description": "Test transferring funds between own accounts",
+    "test_scenario": "R6",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Initiate transfer",
+        "expected_result": "Transfer successful"
+      },
+      {
+        "step_id": 2,
+        "action": "Initiate transfer with insufficient balance",
+        "expected_result": "Error message displayed"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_07",
+    "test_name": "Inter-Bank Transfer",
+    "test_description": "Test inter-bank transfer with processing time less than 24 hours",
+    "test_scenario": "R7",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Initiate transfer",
+        "expected_result": "Transfer initiated"
+      },
+      {
+        "step_id": 2,
+        "action": "Check transfer status after 24 hours",
+        "expected_result": "Transfer completed"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_08",
+    "test_name": "Account Statement",
+    "test_description": "Test downloading account statement in PDF format",
+    "test_scenario": "R8",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Login to account",
+        "expected_result": "Account statement available"
+      },
+      {
+        "step_id": 2,
+        "action": "Download account statement",
+        "expected_result": "Statement downloaded in PDF format"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_09",
+    "test_name": "Transaction Notification",
+    "test_description": "Test notification for transactions above \u20b950,000",
+    "test_scenario": "R9",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Initiate transaction above \u20b950,000",
+        "expected_result": "Notification sent"
+      },
+      {
+        "step_id": 2,
+        "action": "Initiate transaction below \u20b950,000",
+        "expected_result": "No notification sent"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_10",
+    "test_name": "Admin Account Management",
+    "test_description": "Test viewing and managing user accounts by admin",
+    "test_scenario": "R10",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Login as admin",
+        "expected_result": "User accounts visible"
+      },
+      {
+        "step_id": 2,
+        "action": "Perform account management actions",
+        "expected_result": "Actions successful"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_11",
+    "test_name": "Concurrency",
+    "test_description": "Test handling 10,000 concurrent users",
+    "test_scenario": "R11",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Simulate 10,000 concurrent users",
+        "expected_result": "System responds within 2 seconds"
+      },
+      {
+        "step_id": 2,
+        "action": "Check system performance",
+        "expected_result": "System performance stable"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_12",
+    "test_name": "API Response Time",
+    "test_description": "Test API responses completing within 2 seconds",
+    "test_scenario": "R12",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Initiate API request",
+        "expected_result": "Response received within 2 seconds"
+      },
+      {
+        "step_id": 2,
+        "action": "Check API response time",
+        "expected_result": "Response time within 2 seconds"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_13",
+    "test_name": "Security",
+    "test_description": "Test security using HTTPS and end-to-end encryption",
+    "test_scenario": "R13",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Check HTTPS connection",
+        "expected_result": "HTTPS connection established"
+      },
+      {
+        "step_id": 2,
+        "action": "Check end-to-end encryption",
+        "expected_result": "Data encrypted"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_14",
+    "test_name": "Password Storage",
+    "test_description": "Test storing user passwords using SHA-256 hashing",
+    "test_scenario": "R14",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Check password storage",
+        "expected_result": "Passwords stored using SHA-256"
+      },
+      {
+        "step_id": 2,
+        "action": "Verify password hashing",
+        "expected_result": "Passwords hashed correctly"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_15",
+    "test_name": "Uptime",
+    "test_description": "Test maintaining uptime of 99.9% monthly",
+    "test_scenario": "R15",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Monitor system uptime",
+        "expected_result": "Uptime above 99.9%"
+      },
+      {
+        "step_id": 2,
+        "action": "Check system availability",
+        "expected_result": "System available"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_16",
+    "test_name": "Database Backup",
+    "test_description": "Test automatic database backups every 6 hours",
+    "test_scenario": "R16",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Check backup schedule",
+        "expected_result": "Backups scheduled every 6 hours"
+      },
+      {
+        "step_id": 2,
+        "action": "Verify backup files",
+        "expected_result": "Backup files created"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_17",
+    "test_name": "Minimum Balance",
+    "test_description": "Test maintaining minimum balance of \u20b9500 in savings accounts",
+    "test_scenario": "R17",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Check account balance",
+        "expected_result": "Balance above \u20b9500"
+      },
+      {
+        "step_id": 2,
+        "action": "Initiate transaction below minimum balance",
+        "expected_result": "Error message displayed"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_18",
+    "test_name": "OTP Verification for Large Transactions",
+    "test_description": "Test OTP verification for transactions above \u20b91,00,000",
+    "test_scenario": "R18",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Initiate transaction above \u20b91,00,000",
+        "expected_result": "OTP verification required"
+      },
+      {
+        "step_id": 2,
+        "action": "Enter valid OTP",
+        "expected_result": "Transaction successful"
+      }
+    ]
+  },
+  {
+    "test_id": "TC_19",
+    "test_name": "Account Statement Retention",
+    "test_description": "Test retaining account statements for at least 5 years",
+    "test_scenario": "R19",
+    "test_steps": [
+      {
+        "step_id": 1,
+        "action": "Check statement retention period",
+        "expected_result": "Statements retained for at least 5 years"
+      },
+      {
+        "step_id": 2,
+        "action": "Verify statement availability",
+        "expected_result": "Statements available for at least 5 years"
+      }
+    ]
+  }
+]

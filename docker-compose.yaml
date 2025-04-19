@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  consistency-checker:
+    build:
+      context: ./consistency-checker
+    image: consistency-checker
+    container_name: consistency-checker
+    ports:
+      - "5000:5000"
+    restart: always
+
+  # github_integration_service:
+  #   build:
+  #     context: ./github_integration_service
+  #   image: github_integration_service
+  #   container_name: github_integration_service
+  #   ports:
+  #     - "5050:5050"
+  #   restart: always
+
+  test-scenario-generator:
+    build:
+      context: ./test_scenario_generator
+    image: test-scenario-generator
+    container_name: test-scenario-generator
+    ports:
+      - "5001:5001"
+    restart: always

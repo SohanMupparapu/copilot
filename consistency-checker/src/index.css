@@ -1,0 +1,97 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 181 59% 45%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+ 
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+ 
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212 27% 84%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  .file-input-zone {
+    @apply border-2 border-dashed border-gray-300 rounded-lg p-12 text-center cursor-pointer hover:bg-gray-50 transition-colors;
+  }
+  
+  .file-input-zone.dragging {
+    @apply border-primary bg-primary/5;
+  }
+  
+  .service-card {
+    @apply bg-white rounded-lg shadow-md transition-all hover:shadow-lg p-6 border border-gray-100;
+  }
+  
+  .nav-item {
+    @apply px-4 py-2 rounded-md hover:bg-gray-100 transition-colors;
+  }
+  
+  .nav-item.active {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+}
