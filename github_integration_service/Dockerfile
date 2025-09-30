@@ -3,9 +3,14 @@ FROM python:3.9-slim
 
 # Install wkhtmltopdf and its dependencies
 RUN apt-get update && apt-get install -y \
-    wkhtmltopdf \
-    --no-install-recommends && \
+    wget \
+    xfonts-base \
+    xfonts-75dpi && \
+    wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb && \
+    dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb || apt-get install -f -y && \
+    rm wkhtmltox_0.12.6-1.focal_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
+
 
 # Set the working directory in the container
 WORKDIR /app
@@ -18,8 +23,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . ./
 
 # Expose the port the Flask app runs on
-EXPOSE 5050
+EXPOSE 8000
 
 
 # Use Gunicorn for production. Alternatively, you can use `python app.py`.
-CMD ["gunicorn", "--bind", "0.0.0.0:5050", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]

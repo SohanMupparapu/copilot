@@ -117,6 +117,7 @@ def github_callback():
     # Continue with the OAuth flow
     try:
         code = request.args.get('code')
+        print(code)
         user = AuthService.authenticate_user(code)
         session['user_id'] = user.id
         

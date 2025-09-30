@@ -54,6 +54,10 @@ class GitHubService:
 
     @staticmethod
     def exchange_code_for_token(code):
+        logger.info(f"code: {code}")
+        logger.info(f"Using redirect: '{REDIRECT_URI}'")
+        logger.info(f"Token URL is correct")
+
         resp = requests.post(
             "https://github.com/login/oauth/access_token",
             data={'client_id': GITHUB_CLIENT_ID, 'client_secret': GITHUB_CLIENT_SECRET, 'code': code, 'redirect_uri': REDIRECT_URI},
@@ -65,6 +69,7 @@ class GitHubService:
 class AuthService:
     @staticmethod
     def authenticate_user(github_code):
+        print(github_code)
         token = GitHubService.exchange_code_for_token(github_code)
         info = GitHubService.get_user_info(token)
         username = info.get('login')
