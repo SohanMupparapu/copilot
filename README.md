@@ -14,10 +14,10 @@ docker run -d --name flask-container \
   myflaskapp:latest
 
 # Consistency-Checker
-docker build -t consistency-checker\n
+docker build -t consistency-checker 
 docker run -d --name flask-container1 -p 5001:5000 consistency-checker
 
 # Test Scenario Generator
 
-docker build -t test_scenario\n.
+docker build -t test_scenario\n 
 docker run -d --name flask-container2 -p 5050:5001 test_scenario
