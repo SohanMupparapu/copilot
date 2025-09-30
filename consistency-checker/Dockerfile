@@ -1,10 +1,13 @@
 # Use the official slim Python image as a base
 FROM python:3.9-slim
 
-# Install wkhtmltopdf and its dependencies
 RUN apt-get update && apt-get install -y \
-    wkhtmltopdf \
-    --no-install-recommends && \
+    wget \
+    xfonts-base \
+    xfonts-75dpi && \
+    wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb && \
+    dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb || apt-get install -f -y && \
+    rm wkhtmltox_0.12.6-1.focal_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
